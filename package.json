@@ -1,0 +1,21 @@
+{
+  "name": "ai-therapist",
+  "version": "1.0.0",
+  "description": "AI-Powered Personal Therapist",
+  "scripts": {
+    "install:all": "npm install && npm run install:client && npm run install:server && npm run install:ml",
+    "install:client": "cd client && npm install",
+    "install:server": "cd server && npm install",
+    "install:ml": "cd ml_models && pip install -r requirements.txt && python -m spacy download en_core_web_sm",
+    "start:all": "concurrently \"npm run start:client\" \"npm run start:server\" \"npm run start:ml\"",
+    "start:client": "cd client && npm start",
+    "start:server": "cd server && npm run dev",
+    "start:ml": "cd ml_models && python app.py",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "cd client && npm run build",
+    "build:server": "cd server && npm run build"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
